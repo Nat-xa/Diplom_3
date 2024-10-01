@@ -1,5 +1,3 @@
-import time
-
 import allure
 
 from locators.password_recovery_locators import PasswordRecoveryLocators
@@ -15,13 +13,14 @@ class PasswordRecoveryPage(BasePage):
 
     @allure.step('Нажатие на кнопку "Восстановить"')
     def click_recovery_button(self):
-        recovery_button = self.wait_and_find_element(PasswordRecoveryLocators.RECOVERY_BUTTON)
+        self.wait_and_find_element(PasswordRecoveryLocators.RECOVERY_BUTTON)
+        recovery_button = self.wait_clickable_element(PasswordRecoveryLocators.RECOVERY_BUTTON)
         recovery_button.click()
 
     @allure.step('Нажатие на "глазик" в форме восстановления пароля')
     def click_eye_button(self):
-        eye_button = self.wait_and_find_element(PasswordRecoveryLocators.EYE_BUTTON)
-        time.sleep(2)
+        self.wait_and_find_element(PasswordRecoveryLocators.EYE_BUTTON)
+        eye_button = self.wait_clickable_element(PasswordRecoveryLocators.EYE_BUTTON)
         eye_button.click()
 
     @allure.step('Ожидание кнопки "Восстановить"')
